@@ -1,0 +1,14 @@
+{
+  "name": "paex-desk",
+  "version": "1.0.0",
+  "description": "Plesk API Explorer Desktop App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "author": "Alexei Yuzhakov",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "electron-prebuilt": "^1.1.0"
+  }
+}
