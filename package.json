@@ -10,10 +10,18 @@
   "license": "Apache-2.0",
   "build": {
     "app-bundle-id": "com.plesk.paex-desk",
-    "app-category-type": "public.app-category.developer-tools"
+    "app-category-type": "public.app-category.developer-tools",
+    "productName": "Plesk API Explorer",
+    "osx": {
+      "title": "Plesk API Explorer",
+      "window": {
+        "position": { "x": 250, "y": 250 },
+        "size": { "width": 540, "height": 340 }
+      }
+    }
   },
   "devDependencies": {
-    "electron-builder": "^3.23.0",
+    "electron-builder": "^3.25.0",
     "electron-packager": "^7.0.1",
     "electron-prebuilt": "^1.1.0"
   }
