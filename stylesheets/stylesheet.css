@@ -46,7 +46,7 @@ header {
 header h1 {
   font-size: 30px;
   line-height: 1.5;
-  margin: 0 0 0 -40px;
+  margin: 0;
   font-weight: bold;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   color: #b5e853;
@@ -55,11 +55,6 @@ header h1 {
                0 0 10px rgba(181, 232, 83, 0.1);
   letter-spacing: -1px;
   -webkit-font-smoothing: antialiased;
-}
-
-header h1:before {
-  content: "./ ";
-  font-size: 24px;
 }
 
 header h2 {
@@ -220,6 +215,18 @@ hr {
 .btn-github .icon {
   opacity: 0.6;
   background: url("../images/blacktocat.png") 0 0 no-repeat;
+}
+
+.btn-download-win .icon {
+  opacity: 0.6;
+  background: url("../images/win_button_icon.svg") 0 0 no-repeat;
+  background-size: 16px 16px;
+}
+
+.btn-download-mac .icon {
+  opacity: 0.6;
+  background: url("../images/apple_button_icon.svg") 0 0 no-repeat;
+  background-size: 16px 16px;
 }
 
 /* Links
