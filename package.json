@@ -8,7 +8,13 @@
   },
   "author": "Alexei Yuzhakov",
   "license": "Apache-2.0",
+  "build": {
+    "app-bundle-id": "com.plesk.paex-desk",
+    "app-category-type": "public.app-category.developer-tools"
+  },
   "devDependencies": {
+    "electron-builder": "^3.23.0",
+    "electron-packager": "^7.0.1",
     "electron-prebuilt": "^1.1.0"
   }
 }
