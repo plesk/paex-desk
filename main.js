@@ -1,6 +1,7 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const Menu = electron.Menu;
 
 let mainWindow;
 
@@ -58,14 +59,52 @@ if (handleSquirrelEvent()) {
 }
 
 let createWindow = () => {
-    let height = ('darwin' === process.platform) ? 590 : 610;
+    let height = ('darwin' === process.platform) ? 590 : 625;
     mainWindow = new BrowserWindow({ width: 1020, height: height });
     mainWindow.loadURL(`file://${__dirname}/index.html`);
 
     mainWindow.on('closed', () => mainWindow = null);
 };
 
-app.on('ready', createWindow);
+let setupMenu = () => {
+    let menuTemplate = [{
+        label: 'Edit',
+        submenu: [
+            { label: 'Undo', accelerator: 'CmdOrCtrl+Z', selector: 'undo:' },
+            { label: 'Redo', accelerator: 'Shift+CmdOrCtrl+Z', selector: 'redo:' },
+            { type: 'separator' },
+            { label: 'Cut', accelerator: 'CmdOrCtrl+X', selector: 'cut:' },
+            { label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
+            { label: 'Paste', accelerator: 'CmdOrCtrl+V', selector: 'paste:' },
+            { label: 'Select All', accelerator: 'CmdOrCtrl+A', selector: 'selectAll:' }
+        ]}
+    ];
+
+    if ('darwin' === process.platform) {
+        let name = 'Plesk API Explorer';
+        menuTemplate.unshift({
+            label: name,
+            submenu: [
+                { label: 'About ' + name, role: 'about' },
+                { type: 'separator' },
+                { label: 'Services', role: 'services', submenu: [] },
+                { type: 'separator' },
+                { label: 'Hide ' + name, accelerator: 'Command+H', role: 'hide' },
+                { label: 'Hide Others', accelerator: 'Command+Alt+H', role: 'hideothers' },
+                { label: 'Show All', role: 'unhide' },
+                { type: 'separator' },
+                { label: 'Quit', accelerator: 'Command+Q', click: app.quit }
+            ]
+        });
+    }
+
+    Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));
+};
+
+app.on('ready', () => {
+    createWindow();
+    setupMenu();
+});
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
