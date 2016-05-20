@@ -15,8 +15,14 @@
     "osx": {
       "title": "Plesk API Explorer",
       "window": {
-        "position": { "x": 250, "y": 250 },
-        "size": { "width": 540, "height": 340 }
+        "position": {
+          "x": 250,
+          "y": 250
+        },
+        "size": {
+          "width": 540,
+          "height": 340
+        }
       }
     }
   },
