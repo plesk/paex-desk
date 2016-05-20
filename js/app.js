@@ -1,7 +1,7 @@
 $(() => {
     let pleskApi = require('./js/plesk_api_client.js');
 
-    $('form').on('submit', (event) => {
+    let formHandler = (event) => {
         event.preventDefault();
 
         let host = $('#fieldHost').val();
@@ -15,5 +15,13 @@ $(() => {
         client.request(request, (response) => {
             $('#fieldResponse').text(response);
         });
+    };
+
+    $('#fieldRequest').on('keydown', (event) => {
+        if ((event.ctrlKey || event.metaKey) && (13 == event.keyCode)) {
+            formHandler(event);
+        }
     });
+
+    $('form').on('submit', formHandler);
 });
