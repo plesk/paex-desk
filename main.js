@@ -67,6 +67,7 @@ let createWindow = () => {
 };
 
 let setupMenu = () => {
+    let shell = electron.shell;
     let menuTemplate = [{
         label: 'Edit',
         submenu: [
@@ -77,8 +78,24 @@ let setupMenu = () => {
             { label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
             { label: 'Paste', accelerator: 'CmdOrCtrl+V', selector: 'paste:' },
             { label: 'Select All', accelerator: 'CmdOrCtrl+A', selector: 'selectAll:' }
-        ]}
-    ];
+        ]
+    }, {
+        label: 'Help',
+        submenu: [
+            {
+                label: 'XML-RPC Guide && Reference',
+                click() { shell.openExternal('http://docs.plesk.com/en-US/12.5/api-rpc/about-xml-api.28709/'); }
+            }, {
+                label: 'XML-RPC Schemes',
+                click() { shell.openExternal('http://plesk.github.io/api-schemas/'); }
+            }, {
+                type: 'separator'
+            }, {
+                label: 'Report Issue',
+                click() { shell.openExternal('https://github.com/plesk/paex-desk/issues'); }
+            }
+        ]
+    }];
 
     if ('darwin' === process.platform) {
         let name = 'Plesk API Explorer';
