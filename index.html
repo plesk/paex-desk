@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Plesk API Explorer</title>
         <link href="./css/bootstrap.css" rel="stylesheet">
+        <link href="./css/codemirror.css" rel="stylesheet">
         <link href="./css/app.css" rel="stylesheet">
     </head>
     <body>
@@ -34,7 +35,7 @@
                             <div class="form-group">
                                 <label for="fieldRequest" class="col-xs-2 control-label">Request</label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control" rows="10" id="fieldRequest"></textarea>
+                                    <textarea class="form-control" id="fieldRequest"></textarea>
                                 </div>
                             </div>
 
@@ -56,6 +57,8 @@
         </div>
 
         <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
+        <script src="./js/codemirror.js"></script>
+        <script src="./js/codemirror-xml.js"></script>
         <script src="./js/app.js"></script>
     </body>
 </html>

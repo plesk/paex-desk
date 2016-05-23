@@ -1,3 +1,3 @@
 body { margin: 20px 0 0 0; }
-#fieldRequest { font-family: monospace; }
+.CodeMirror { height: 230px; }
 #fieldResponse { height: 448px; white-space: pre-wrap; }
