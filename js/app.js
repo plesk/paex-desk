@@ -1,5 +1,5 @@
 $(() => {
-    let pleskApi = require('./js/plesk_api_client.js');
+    let pleskApi = require('plesk-api-client');
 
     let editor = CodeMirror.fromTextArea($('#fieldRequest').get(0), {
         mode: "text/html",
